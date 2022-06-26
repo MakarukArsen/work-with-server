@@ -7,7 +7,33 @@
     <title>server</title>
 </head>
 <body>
-    <h1>HW#12 Робота з сервером</h1>
+    <div class="wrapper">
+        <header class="header">
+                    <h1>HW#12 Робота з сервером</h1>
+        </header>
+        <main class="main">
+            <div class="heroes">
+                <h2>Герої зоряних війн</h2>
+                <form action="get">
+                    <select id="select-film">
+                        <option value="1">Частина 1</option>
+                        <option value="2">Частина 2</option>
+                        <option value="3">Частина 3</option>
+                        <option value="4">Частина 4</option>
+                        <option value="5">Частина 5</option>
+                        <option value="6">Частина 6</option>
+                    </select>
+                </form>
+                <button class="btn" id="btn-heroes-info">Отримати інформацію</button>
+            </div>
+            <div class="planets">
+                <h2>Планети зоряних війн</h2>
+                <button class="btn" id="btn-planets-info">Отримати інформацію</button>
+                <button class="btn" id="btn-prev">Попередня сторінка</button>
+                <button class="btn" id="btn-next">Наступна сторінка</button>
+            </div>
+        </main>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
