@@ -39,7 +39,7 @@ async function getHeroesInfo(){
 
         const heroBox = document.createElement("div")
         heroBox.classList.add("hero-list__box");
-        heroesList.append(heroBox)
+        heroesList.append(heroBox);
         const heroLi = document.createElement('li');
         heroLi.innerHTML = heroInfo;
         heroBox.append(heroLi);
