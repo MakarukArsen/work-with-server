@@ -7,7 +7,6 @@
 	font-style: normal;
 }
 
-
 * {
     box-sizing: border-box;
     list-style: none;
@@ -83,7 +82,7 @@ html, body {
     flex-direction: column;
 }
 .heroes{
-
+    margin-bottom: 30px;
 }
 .heroes__form {
 }
@@ -114,18 +113,20 @@ html, body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0px -10px -10px 0px;
 }
 .hero-list__box{
     border: solid 2px #fff;
-    flex: 0 0 25%;
+    flex: 0 0 24%;
+    margin: 0px 10px 10px 0px;
     height: 247px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background: url(./img/luke.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
+
 }
 .hero-list__box li {
     display: flex;

@@ -33,13 +33,15 @@ async function getHeroesInfo(){
         const hero = await (await fetch(heroes[i])).json();
         const heroInfo = [];
         const heroName = hero.name;
-        const heroAge = hero.birth_yearж
+        console.log(heroName);
+        const heroAge = hero.birth_year;
         const heroGender = hero.gender;
         heroInfo.push(`Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`);
 
-        const heroBox = document.createElement("div")
+        const heroBox = document.createElement("div");
         heroBox.classList.add("hero-list__box");
         heroesList.append(heroBox);
+        heroBox.style.backgroundImage = `url(./img/${heroName.replaceAll(" ", "").toLowerCase()}.jpeg)`;
         const heroLi = document.createElement('li');
         heroLi.innerHTML = heroInfo;
         heroBox.append(heroLi);
