@@ -12,53 +12,44 @@ const heroesDiv = wrapper.querySelector(".heroes");
 
 const planetList = document.createElement("div");
 const heroesList = document.createElement("div");
-planetList.classList.add("planetList");
-heroesList.classList.add("heroesList");
+planetList.classList.add("planet-list");
+heroesList.classList.add("heroes-list");
 
 planetsDiv.append(planetList);
 heroesDiv.append(heroesList);
 
-function getHeroesInfo(){
-    let index = 0;
+
+async function getHeroesInfo(){
     const value = select.value;
-    const heroes = fetch(`https://swapi.dev/api/films/${value}`);
-    heroes
-        .then((res) => {
-            return res.json();
-        })
-        .then((res) => {
-            while(heroesList.hasChildNodes()){
-                heroesList.removeChild(heroesList.firstChild);
-            }
-            for(index; index < res.characters.length; index++){
-                getHeroInfo(res);
-            }
-        })
+    const request = await fetch(`https://swapi.dev/api/films/${value}`);
+    const response = await request.json();
+    const heroes = response.characters;
 
-    function getHeroInfo(arr){
-        const heroInfo = [];
-        const hero = fetch(arr.characters[index]);
-        hero
-            .then((res) => {
-                return res.json();
-            })
-            .then((res) => {
-                const heroName = res.name;
-                const heroAge = res.birth_year
-                const heroGender = res.gender;
-                heroInfo.push(`Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`);
-
-                const heroLi = document.createElement('li');
-                heroLi.innerHTML = heroInfo;
-                heroesList.append(heroLi);
-            })
-            return heroInfo;
+    while(heroesList.hasChildNodes()){
+        heroesList.removeChild(heroesList.firstChild);
     }
+
+    for(let i = 0; i < heroes.length; i++){
+        const hero = await (await fetch(heroes[i])).json();
+        const heroInfo = [];
+        const heroName = hero.name;
+        const heroAge = hero.birth_year
+        const heroGender = hero.gender;
+        heroInfo.push(`Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`);
+
+        const heroBox = document.createElement("div")
+        heroBox.classList.add("hero-list__box");
+        heroesList.append(heroBox)
+        const heroLi = document.createElement('li');
+        heroLi.innerHTML = heroInfo;
+        heroBox.append(heroLi);
+    }
+    buttonHeros.removeAttribute("disabled");
 }
 buttonHeros.addEventListener("click", () => {
     getHeroesInfo();
+    buttonHeros.setAttribute("disabled", "disabled");
 })
-
 
 
 function getPlanets(page = planetsPage) {

@@ -4,35 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>server</title>
 </head>
 <body>
     <div class="wrapper">
         <header class="header">
-                    <h1>HW#12 Робота з сервером</h1>
+            <h1 class="header__title">HW12 work with the server</h1>
         </header>
         <main class="main">
-            <div class="heroes">
-                <h2>Герої зоряних війн</h2>
-                <form action="get">
-                    <select id="select-film">
-                        <option value="1">Частина 1</option>
-                        <option value="2">Частина 2</option>
-                        <option value="3">Частина 3</option>
-                        <option value="4">Частина 4</option>
-                        <option value="5">Частина 5</option>
-                        <option value="6">Частина 6</option>
-                    </select>
-                </form>
-                <button class="btn" id="btn-heroes-info">Отримати інформацію</button>
-            </div>
-            <div class="planets">
-                <h2>Планети зоряних війн</h2>
-                <button class="btn" id="btn-planets-info">Отримати інформацію</button>
-                <button class="btn" id="btn-prev">Попередня сторінка</button>
-                <button class="btn" id="btn-next">Наступна сторінка</button>
+            <div class="container">
+                <div class="main__star-wars star-wars">
+                    <div class="heroes">
+                        <h2>Heroes of Star Wars</h2>
+                        <form class="heroes__form form" action="get">
+                            <select class="heroes__form__select" id="select-film">
+                                <option class="heroes__form__option" value="1">Chapter 1</option>
+                                <option class="heroes__form__option" value="2">Chapter 2</option>
+                                <option class="heroes__form__option" value="3">Chapter 3</option>
+                                <option class="heroes__form__option" value="4">Chapter 4</option>
+                                <option class="heroes__form__option" value="5">Chapter 5</option>
+                                <option class="heroes__form__option" value="6">Chapter 6</option>
+                            </select>
+                            <button class="btn" id="btn-heroes-info">get info</button>
+                        </form>
+                    </div>
+                    <div class="planets">
+                        <h2>Planets of star wars</h2>
+                        <form class="planets__form form" action="">
+                            <button class="btn" id="btn-planets-info">get info</button>
+                            <button class="btn" id="btn-prev">next page</button>
+                            <button class="btn" id="btn-next">prev page</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </main>
+        <footer class="footer">some sort of copyrigth :D &#169</footer>
     </div>
     <script src="./script.js"></script>
 </body>
