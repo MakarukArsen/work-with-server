@@ -33,7 +33,7 @@ async function getHeroesInfo(){
         const hero = await (await fetch(heroes[i])).json();
         const heroInfo = [];
         const heroName = hero.name;
-        const heroAge = hero.birth_year
+        const heroAge = hero.birth_yearж
         const heroGender = hero.gender;
         heroInfo.push(`Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`);
 
