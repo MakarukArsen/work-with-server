@@ -31,11 +31,11 @@ async function getHeroesInfo(){
 
     for(let i = 0; i < heroes.length; i++){
         const hero = await (await fetch(heroes[i])).json();
-        const heroInfo = [];
+
         const heroName = hero.name;
-        console.log(heroName);
         const heroAge = hero.birth_year;
         const heroGender = hero.gender;
+        const heroInfo = [];
         heroInfo.push(`Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`);
 
         const heroBox = document.createElement("div");
