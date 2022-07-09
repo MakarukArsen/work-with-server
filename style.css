@@ -29,6 +29,9 @@
     background-color: #fff;
     color: black;
 }
+.btn_disabled{
+    background-color: grey;
+}
 .form{
     margin-bottom: 20px;
 }

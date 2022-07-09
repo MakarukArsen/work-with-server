@@ -1,10 +1,14 @@
 let planetsPage = 1;
+const firstPage = 1;
+const lastPage = 6;
 const buttonHeros = document.getElementById("btn-heroes-info");
 const select = document.getElementById("select-film");
 
 const buttonPlanets = document.getElementById("btn-planets-info");
 const buttonPrev = document.getElementById("btn-prev");
 const buttonNext = document.getElementById("btn-next");
+buttonPrev.classList.add("btn_disabled");
+buttonNext.classList.add("btn_disabled");
 
 const wrapper = document.querySelector(".wrapper");
 const planetsDiv = wrapper.querySelector(".planets");
@@ -35,8 +39,7 @@ async function getHeroesInfo(){
         const heroName = hero.name;
         const heroAge = hero.birth_year;
         const heroGender = hero.gender;
-        const heroInfo = [];
-        heroInfo.push(`Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`);
+        const heroInfo = `Name: ${heroName}, Age: ${heroAge}, Gender: ${heroGender}`;
 
         const heroBox = document.createElement("div");
         heroBox.classList.add("hero-list__box");
@@ -71,26 +74,30 @@ function getPlanets(page = planetsPage) {
 }
 
 buttonPlanets.addEventListener("click", () => {
+    buttonNext.classList.remove("btn_disabled")
+    buttonPlanets.classList.add("btn_disabled")
+    buttonPlanets.setAttribute("disabled", "disabled");
     getPlanets();
 })
 
+
 buttonNext.addEventListener("click", () => {
-    if(!planetList.hasChildNodes()){
+    if(!planetList.hasChildNodes() || planetsPage === lastPage){
+        buttonNext.classList.add("btn_disabled");
         return;
-    }
-    if(planetsPage === 6){
-        return;
+    } else{
+        buttonPrev.classList.remove("btn_disabled");
     }
     planetsPage += 1;
     getPlanets(planetsPage);
 });
 
 buttonPrev.addEventListener("click", () => {
-    if(!planetList.hasChildNodes()){
+    if(!planetList.hasChildNodes() || planetsPage === firstPage){
+        buttonPrev.classList.add("btn_disabled");
         return;
-    }
-    if(planetsPage === 1){
-        return;
+    } else{
+        buttonNext.classList.remove("btn_disabled");
     }
     planetsPage -= 1;
     getPlanets(planetsPage);
